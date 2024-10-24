@@ -8,12 +8,9 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    add_fieldsets = [
-
-    ]
     fieldsets = (
         (_('personal info'), {'fields': ('avatar',
-         'gender', 'bio', 'birth_date', 'language',)}),
+         'gender', 'bio', 'birth_date', 'language', 'superhost')}),
 
     )
     fieldsets += UserAdmin.fieldsets

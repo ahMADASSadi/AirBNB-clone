@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-21 21:09+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: reviews/admin.py:9 reviews/models.py:34
+msgid "Review"
+msgstr "بازبینی"
+
+#: reviews/admin.py:10 reviews/apps.py:8 reviews/models.py:35
+msgid "Reviews"
+msgstr "بازبینی‌ها"
+
+#: reviews/models.py:11
+msgid "Review Text"
+msgstr "متن بازبینی"
+
+#: reviews/models.py:13
+msgid "Accuracy"
+msgstr "دقت"
+
+#: reviews/models.py:15
+msgid "Communication"
+msgstr "ارتباط با مشتری"
+
+#: reviews/models.py:17
+msgid "Cleanliness"
+msgstr "پاکیزگی"
+
+#: reviews/models.py:19
+msgid "Location"
+msgstr "موقعیت مکانی"
+
+#: reviews/models.py:21
+msgid "Check In"
+msgstr "تحویل به موقع"
+
+#: reviews/models.py:23
+msgid "Value"
+msgstr "ارزش‌گذاری مشتری"
+
+#: reviews/models.py:26
+msgid "Customer"
+msgstr "مشتری"
+
+#: reviews/models.py:28
+msgid "Room"
+msgstr "اتاق"

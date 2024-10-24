@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-20 19:22+0330\n"
+"POT-Creation-Date: 2024-09-21 21:33+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: config/settings.py:116
+#: config/settings.py:124
 msgid "Persian"
 msgstr "فارسی"
 
-#: config/settings.py:117
+#: config/settings.py:125
 msgid "English"
 msgstr "انگلیسی"
+
+#, fuzzy
+#~| msgid "Descpription"
+#~ msgid "Conversation"
+#~ msgstr "توضیحات"
+
+#~ msgid "Guest"
+#~ msgstr "مهمان"
+
+#~ msgid "Check In"
+#~ msgstr "تاریخ ورود"
+
+#~ msgid "Check Out"
+#~ msgstr "تاریخ خروج"
 
 #~ msgid "Name"
 #~ msgstr "اسم"
 
 #~ msgid "Enter Your Decription of the Room Here"
 #~ msgstr "توضیحات لازم درباره اقامتگاه را وارد کنید"
-
-#~ msgid "Descpription"
-#~ msgstr "توضیحات"
 
 #~ msgid "Country"
 #~ msgstr "کشور"
@@ -52,15 +63,6 @@ msgstr "انگلیسی"
 
 #~ msgid "Bedroom"
 #~ msgstr "اتاق خواب"
-
-#~ msgid "Guest"
-#~ msgstr "مهمان"
-
-#~ msgid "Check In"
-#~ msgstr "تاریخ ورود"
-
-#~ msgid "Check Out"
-#~ msgstr "تاریخ خروج"
 
 #~ msgid "Instant Book"
 #~ msgstr "رزرو آنی"
