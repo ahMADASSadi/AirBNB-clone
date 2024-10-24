@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-20 20:11+0330\n"
+"POT-Creation-Date: 2024-09-21 23:16+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,83 +18,159 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: rooms/admin.py:9 rooms/models.py:28 rooms/models.py:51
+#: rooms/admin.py:10 rooms/models.py:45 rooms/models.py:91
 msgid "Room Type"
 msgstr "نوع اتاق"
 
-#: rooms/admin.py:15 rooms/apps.py:8 rooms/models.py:57
+#: rooms/admin.py:15 rooms/models.py:53
+msgid "Room Amenity"
+msgstr "امکان رفاهی"
+
+#: rooms/admin.py:20 rooms/models.py:60 rooms/models.py:97
+msgid "Room Facility"
+msgstr "تسهیلات اتاق"
+
+#: rooms/admin.py:25 rooms/models.py:67 rooms/models.py:100
+msgid "Room Rule"
+msgstr "قانون اتاق"
+
+#: rooms/admin.py:34 rooms/models.py:24
+msgid "Room Image"
+msgstr "عکس اتاق"
+
+#: rooms/admin.py:35 rooms/models.py:25
+msgid "Room Images"
+msgstr "عکس‌های اتاق"
+
+#: rooms/admin.py:41
+msgid "No image found"
+msgstr "عکسی یافت نشد"
+
+#: rooms/admin.py:42
+msgid "No Image Available"
+msgstr "عکسی در دسترس نیست"
+
+#: rooms/admin.py:44
+msgid "Image Thumbnail"
+msgstr "پیشنمایش عکس"
+
+#: rooms/admin.py:49 rooms/apps.py:8 rooms/models.py:18 rooms/models.py:106
 msgid "Room"
 msgstr "اتاق"
 
-#: rooms/apps.py:9 rooms/models.py:58
+#: rooms/admin.py:50 rooms/apps.py:9 rooms/models.py:107
 msgid "Rooms"
 msgstr "اتاق‌ها"
 
-#: rooms/models.py:13 rooms/models.py:34
+#: rooms/admin.py:52
+msgid "Basic Info"
+msgstr "اطلاعات پایه"
+
+#: rooms/admin.py:55
+msgid "Times"
+msgstr "زمان‌ها"
+
+#: rooms/admin.py:58
+msgid "Spaces"
+msgstr "فضا‌ها"
+
+#: rooms/admin.py:61
+msgid "More About the space"
+msgstr "اطلاعات بیشتر درباره فضا"
+
+#: rooms/admin.py:64
+msgid "Last Detail"
+msgstr ""
+
+#: rooms/models.py:13
+msgid "Caption"
+msgstr "کپشن"
+
+#: rooms/models.py:15
+msgid "Image"
+msgstr "عکس"
+
+#: rooms/models.py:31 rooms/models.py:73
 msgid "Name"
 msgstr "اسم"
 
-#: rooms/models.py:19
+#: rooms/models.py:37
 msgid "Tag"
 msgstr "عنوان"
 
-#: rooms/models.py:20
+#: rooms/models.py:38
 msgid "Tags"
 msgstr "عناوین"
 
-#: rooms/models.py:29
+#: rooms/models.py:46
 msgid "Room Types"
 msgstr "نوع اتاق‌ها"
 
-#: rooms/models.py:36
+#: rooms/models.py:54 rooms/models.py:94
+msgid "Room Amenities"
+msgstr "امکانات رفاهی اتاق"
+
+#: rooms/models.py:61
+msgid "Room Facilities"
+msgstr "تسهیلات رفاهی اتاق"
+
+#: rooms/models.py:68
+msgid "Room Rules"
+msgstr "قوانین اتاق"
+
+#: rooms/models.py:75
 msgid "Enter Your Decription of the Room Here"
 msgstr "توضیحات اقامتگاه خود را وارد کنید."
 
-#: rooms/models.py:36
+#: rooms/models.py:75
 msgid "Descpription"
 msgstr "توضیحات"
 
-#: rooms/models.py:37
+#: rooms/models.py:76
 msgid "Country"
 msgstr "کشور"
 
-#: rooms/models.py:38
+#: rooms/models.py:77
 msgid "City"
 msgstr "شهر"
 
-#: rooms/models.py:39
+#: rooms/models.py:78
 msgid "Price"
 msgstr "قیمت"
 
-#: rooms/models.py:40
+#: rooms/models.py:79
 msgid "Address"
 msgstr "آدرس"
 
-#: rooms/models.py:41
+#: rooms/models.py:80
 msgid "Bed"
 msgstr "تخت"
 
-#: rooms/models.py:42
+#: rooms/models.py:81
 msgid "Bedroom"
-msgstr "اتاق"
+msgstr "اتاق خواب"
 
-#: rooms/models.py:43
+#: rooms/models.py:82
+msgid "Bath"
+msgstr "حمام"
+
+#: rooms/models.py:83
 msgid "Guest"
 msgstr "مهمان"
 
-#: rooms/models.py:44
+#: rooms/models.py:84
 msgid "Check In"
 msgstr "تاریخ ورود"
 
-#: rooms/models.py:45
+#: rooms/models.py:85
 msgid "Check Out"
 msgstr "تاریخ خروج"
 
-#: rooms/models.py:47
+#: rooms/models.py:87
 msgid "Instant Book"
 msgstr "رزرو آنی"
 
-#: rooms/models.py:49
+#: rooms/models.py:89
 msgid "Host"
 msgstr "میزبان"
 

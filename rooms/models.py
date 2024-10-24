@@ -7,6 +7,24 @@ from core.models import TimeStampedModel
 # Create your models here.
 
 
+class RoomImage(TimeStampedModel):
+    """Photo model Definition"""
+    caption = models.CharField(
+        max_length=150, null=True, blank=True, verbose_name=_('Caption'))
+    image = models.ImageField(
+        upload_to='rooms/images', verbose_name=_("Image"))
+
+    room = models.ForeignKey(
+        'Room', on_delete=models.CASCADE, verbose_name=_('Room'))
+
+    def __str__(self) -> str:
+        return f"{self.caption}"
+
+    class Meta:
+        verbose_name = _('Room Image')
+        verbose_name_plural = _("Room Images")
+
+
 class AbstractItem(TimeStampedModel):
     """Abstract Item"""
 
@@ -53,7 +71,7 @@ class RoomRule(AbstractItem):
 class Room(TimeStampedModel):
     """Room model"""
     name = models.CharField(max_length=140, verbose_name=_('Name'))
-    desciption = models.TextField(help_text=_(
+    description = models.TextField(help_text=_(
         "Enter Your Decription of the Room Here"), verbose_name=_('Descpription'))
     country = CountryField(verbose_name=_('Country'))
     city = models.CharField(max_length=100, verbose_name=_('City'))
@@ -61,6 +79,7 @@ class Room(TimeStampedModel):
     address = models.CharField(max_length=1400, verbose_name=_('Address'))
     bed = models.SmallIntegerField(verbose_name=_('Bed'))
     bedroom = models.SmallIntegerField(verbose_name=_('Bedroom'))
+    bath = models.SmallIntegerField(verbose_name=_('Bath'))
     guest = models.SmallIntegerField(verbose_name=_('Guest'))
     check_in = models.TimeField(verbose_name=_('Check In'))
     check_out = models.TimeField(verbose_name=_('Check Out'))
@@ -72,12 +91,12 @@ class Room(TimeStampedModel):
         RoomType, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Room Type'))
 
     room_amenity = models.ManyToManyField(
-        RoomAmenity, blank=True, verbose_name=_('Room Amenities'))
+        RoomAmenity, blank=True, verbose_name=_('Room Amenities'),related_name='room_amenities')
 
-    room_facility = models.ForeignKey(
-        RoomFacility, on_delete=models.SET_NULL, verbose_name=_("Room Facility"), null=True)
+    room_facility = models.ManyToManyField(
+        RoomFacility, verbose_name=_("Room Facility"), blank=True, related_name='room_facility')
 
-    room_rule = models.ManyToManyField(
+    house_rule = models.ManyToManyField(
         RoomRule, related_name='room_rules', verbose_name=_('Room Rule'), blank=True)
 
     def __str__(self) -> str:

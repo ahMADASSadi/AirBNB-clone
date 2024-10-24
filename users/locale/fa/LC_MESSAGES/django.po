@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-20 19:49+0330\n"
+"POT-Creation-Date: 2024-09-20 23:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: users/admin.py:15
+#: users/admin.py:12
 msgid "personal info"
 msgstr "اطلاعات شخصی"
+
+#: users/apps.py:8 users/models.py:36
+msgid "Users"
+msgstr "کاربرها"
 
 #: users/models.py:12
 msgid "Male"
@@ -62,10 +66,10 @@ msgstr "زبان"
 msgid "Birth Date"
 msgstr "تاریخ تولد"
 
+#: users/models.py:32
+msgid "SuperHost"
+msgstr "ابرمیزبان"
+
 #: users/models.py:35
 msgid "User"
 msgstr "کاربر"
-
-#: users/models.py:36
-msgid "Users"
-msgstr "کاربرها"
