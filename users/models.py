@@ -29,8 +29,8 @@ class User(AbstractUser):
         max_length=10, choices=LANGUAGE_CHOICES, verbose_name=_('Language'))
     birth_date = models.DateField(
         blank=True, verbose_name=_('Birth Date'), null=True)
-    superhost = models.BooleanField(default=False,verbose_name=_('SuperHost'))
+    superhost = models.BooleanField(default=False, verbose_name=_('SuperHost'))
 
-    class Meta: 
+    class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
