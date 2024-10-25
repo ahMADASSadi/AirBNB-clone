@@ -101,7 +101,7 @@ class Room(TimeStampedModel):
         Rule, related_name='rooms', verbose_name=_('Room Rule'), blank=True)
 
     def __str__(self) -> str:
-        return f"{self.name} , {self.host.email} , {self.country}"
+        return f"{self.name:.20} , {self.host.email} , {self.country}"
 
     class Meta:
         verbose_name = _('Room')

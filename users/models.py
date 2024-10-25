@@ -20,6 +20,16 @@ class User(AbstractUser):
         (LANGUAGE_ENGLISH, _('English')),
         (LANGUAGE_PERSIAN, _('Persian')),
     ]
+    CURRENCY_USD = "usd"
+    CURRENCY_KRW = "krw"
+    CURRENCY_IRR = "irr"
+
+    CURRENCY_CHOICES = [
+        (CURRENCY_USD, _("USD")),
+        (CURRENCY_KRW, _("KRW")),
+        (CURRENCY_IRR, _("IRR")),
+    ]
+
     avatar = models.ImageField(verbose_name=_('Avatar'),
                                upload_to='userprofile/avatar-images/', blank=True)
     gender = models.CharField(verbose_name=_(
@@ -30,6 +40,9 @@ class User(AbstractUser):
     birth_date = models.DateField(
         blank=True, verbose_name=_('Birth Date'), null=True)
     superhost = models.BooleanField(default=False, verbose_name=_('SuperHost'))
+
+    currency = models.CharField(
+        max_length=5, choices=CURRENCY_CHOICES, verbose_name=_("Currency"), default=CURRENCY_USD)
 
     class Meta:
         verbose_name = _('User')

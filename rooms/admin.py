@@ -56,7 +56,7 @@ class RoomAdmin(admin.ModelAdmin):
                 'guest', "bed", "bedroom", 'bath')}),
         (_("More About the space"), {
             'fields': (
-                'room_amenity', "house_rule", "room_facility")}),
+                'room_amenity', "house_rule", "room_facility", 'room_type')}),
         (_("Last Detail"), {
             'fields': (
                 'host',)}),

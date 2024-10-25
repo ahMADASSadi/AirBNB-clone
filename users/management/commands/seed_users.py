@@ -1,3 +1,4 @@
+import random
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django_seed import Seed
@@ -22,7 +23,12 @@ class Command(BaseCommand):
             seeder = Seed.seeder()
             seeder.add_entity(User, number, {
                 'is_staff': False,
+                'superhost': False,
                 'is_superuser': False,
+                'avatar': lambda x: f'userprofile/avatar-images/avatar_{x}.png',
+                'gender': lambda x: random.choice([User.GENDER_MALE, User.GENDER_FEMALE, User.GENDER_OTHER]),
+                'language': lambda x: random.choice([User.LANGUAGE_ENGLISH, User.LANGUAGE_PERSIAN]),
+                'currency': lambda x: random.choice([User.CURRENCY_USD, User.CURRENCY_KRW, User.CURRENCY_IRR]),
             })
 
             seeder.execute()  # This line executes the seeder
