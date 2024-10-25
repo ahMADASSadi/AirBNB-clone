@@ -15,7 +15,7 @@ class RoomImage(TimeStampedModel):
         upload_to='rooms/images', verbose_name=_("Image"))
 
     room = models.ForeignKey(
-        'Room', on_delete=models.CASCADE, verbose_name=_('Room'))
+        'Room', on_delete=models.CASCADE, verbose_name=_('Room'), related_name='images')
 
     def __str__(self) -> str:
         return f"{self.caption}"
@@ -85,19 +85,19 @@ class Room(TimeStampedModel):
     check_out = models.TimeField(verbose_name=_('Check Out'))
     instant_book = models.BooleanField(
         verbose_name=_('Instant Book'), default=False)
-    host = models.ForeignKey(settings.AUTH_USER_MODEL,
+    host = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rooms',
                              on_delete=models.CASCADE, verbose_name=_('Host'))
     room_type = models.ForeignKey(
-        RoomType, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Room Type'))
+        RoomType, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Room Type'), related_name='rooms',)
 
     room_amenity = models.ManyToManyField(
-        RoomAmenity, blank=True, verbose_name=_('Room Amenities'),related_name='room_amenities')
+        RoomAmenity, blank=True, verbose_name=_('Room Amenities'), related_name='rooms')
 
     room_facility = models.ManyToManyField(
-        RoomFacility, verbose_name=_("Room Facility"), blank=True, related_name='room_facility')
+        RoomFacility, verbose_name=_("Room Facility"), blank=True, related_name='rooms')
 
     house_rule = models.ManyToManyField(
-        RoomRule, related_name='room_rules', verbose_name=_('Room Rule'), blank=True)
+        RoomRule, related_name='rooms', verbose_name=_('Room Rule'), blank=True)
 
     def __str__(self) -> str:
         return f"{self.name} , {self.host.email} , {self.country}"
@@ -105,3 +105,13 @@ class Room(TimeStampedModel):
     class Meta:
         verbose_name = _('Room')
         verbose_name_plural = _("Rooms")
+
+    def total_rating(self):
+        reviews = self.reviews.all()
+        total = 0
+        for review in reviews:
+            total += review.get_average()
+        if total > 0:
+            return round(total / len(reviews), 1)
+        else:
+            return 0

@@ -18,3 +18,8 @@ class List(TimeStampedModel):
     class Meta:
         verbose_name = _('List')
         verbose_name_plural = _('Lists')
+        
+    def count_rooms(self):
+        return self.room.count()
+    count_rooms.short_description = _("Number of Rooms")
+    

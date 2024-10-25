@@ -15,3 +15,9 @@ class UserAdmin(UserAdmin):
     )
     fieldsets += UserAdmin.fieldsets
     add_fieldsets = UserAdmin.add_fieldsets
+
+    list_display = [
+        "first_name", 'last_name', 'email', 'is_active', 'language', 'superhost', 'is_staff', 'is_superuser'
+    ]
+    list_filter = UserAdmin.list_filter + ('superhost',)
+

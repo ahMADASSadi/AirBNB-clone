@@ -127,7 +127,7 @@ LANGUAGES = [
 
 LOCALE_PATH = BASE_DIR/'locale'
 
-LANGUAGE_CODE = 'fa'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tehran'
 

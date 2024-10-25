@@ -6,24 +6,13 @@ from . import models
 # Register your models here.
 
 
-@admin.register(models.RoomType)
-class RoomTypeAdmin(admin.ModelAdmin):
-    verbose_name = _('Room Type')
+@admin.register(models.RoomType, models.RoomFacility, models.RoomAmenity, models.RoomRule)
+class ItemAdmin(admin.ModelAdmin):
+    verbose_name = _('Item Admin')
+    list_display = ('name', 'used_by')
 
-
-@admin.register(models.RoomAmenity)
-class RoomAmenityAdmin(admin.ModelAdmin):
-    verbose_name = _('Room Amenity')
-
-
-@admin.register(models.RoomFacility)
-class RoomFacilityAdmin(admin.ModelAdmin):
-    verbose_name = _('Room Facility')
-
-
-@admin.register(models.RoomRule)
-class RoomRuleAdmin(admin.ModelAdmin):
-    verbose_name = _('Room Rule')
+    def used_by(self, obj):
+        return obj.rooms.count()
 
 
 class RoomImageInline(admin.StackedInline):
@@ -79,7 +68,8 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "host",
         "amenities",
-
+        "images",
+        "total_rating",
     ]
     list_filter = ['city', 'country', 'instant_book']
     search_fields = ['city', 'host__username']
@@ -90,8 +80,21 @@ class RoomAdmin(admin.ModelAdmin):
     @admin.display(ordering='amenities')
     def amenities(self, room: models.Room):
         if room.room_amenity.exists():
-            return room.room_amenity.all()
+            amenity = room.room_amenity.all()
+            return ', '.join([str(a) for a in amenity])
         return 0
-        # @admin.register(models.RoomPhoto)
-        # class RoomPhotoAdmin(admin.ModelAdmin):
-        # pass
+
+    @admin.display(ordering='images')
+    def images(self, room: models.Room):
+        if room.images.exists():
+            return room.images.count()
+        return 0
+
+    @admin.display(ordering='price')
+    def price(self, room: models.Room):
+        return f"{room.price:,}"
+
+
+@admin.register(models.RoomImage)
+class RoomPhotoAdmin(admin.ModelAdmin):
+    pass

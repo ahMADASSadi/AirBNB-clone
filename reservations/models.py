@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
@@ -33,3 +34,11 @@ class Reservation(TimeStampedModel):
     class Meta:
         verbose_name = _("Reservation")
         verbose_name_plural = _("Reservations")
+
+    def in_progress(self):
+        return self.check_in <= timezone.now().date() <= self.check_out
+    in_progress.boolean = True
+
+    def is_available(self):
+        return timezone.now().date() < self.check_in or timezone.now().date() > self.check_out
+    is_available.boolean = True
