@@ -47,26 +47,26 @@ class RoomType(AbstractItem):
         verbose_name_plural = _("Room Types")
 
 
-class RoomAmenity(AbstractItem):
+class Amenity(AbstractItem):
     """Amenities of The Room"""
 
     class Meta:
-        verbose_name = _('Room Amenity')
-        verbose_name_plural = _("Room Amenities")
+        verbose_name = _('Amenity')
+        verbose_name_plural = _("Amenities")
 
 
-class RoomFacility(AbstractItem):
+class Facility(AbstractItem):
     """ Facility of The Room"""
     class Meta:
-        verbose_name = _('Room Facility')
-        verbose_name_plural = _("Room Facilities")
+        verbose_name = _('Facility')
+        verbose_name_plural = _("Facilities")
 
 
-class RoomRule(AbstractItem):
+class Rule(AbstractItem):
     """Rules of The Room"""
     class Meta:
-        verbose_name = _('Room Rule')
-        verbose_name_plural = _("Room Rules")
+        verbose_name = _('Rule')
+        verbose_name_plural = _("Rules")
 
 
 class Room(TimeStampedModel):
@@ -92,13 +92,13 @@ class Room(TimeStampedModel):
         RoomType, blank=True, null=True, on_delete=models.SET_NULL, verbose_name=_('Room Type'), related_name='rooms',)
 
     room_amenity = models.ManyToManyField(
-        RoomAmenity, blank=True, verbose_name=_('Room Amenities'), related_name='rooms')
+        Amenity, blank=True, verbose_name=_('Room Amenities'), related_name='rooms')
 
     room_facility = models.ManyToManyField(
-        RoomFacility, verbose_name=_("Room Facility"), blank=True, related_name='rooms')
+        Facility, verbose_name=_("Room Facility"), blank=True, related_name='rooms')
 
     house_rule = models.ManyToManyField(
-        RoomRule, related_name='rooms', verbose_name=_('Room Rule'), blank=True)
+        Rule, related_name='rooms', verbose_name=_('Room Rule'), blank=True)
 
     def __str__(self) -> str:
         return f"{self.name} , {self.host.email} , {self.country}"

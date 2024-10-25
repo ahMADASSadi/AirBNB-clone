@@ -51,6 +51,7 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     'django_countries',
     "whitenoise.runserver_nostatic",
+    'django_seed'
 ]
 
 INSTALLED_APPS = DJANGO_APPS+PROJECT_APPS + THIRD_PARTY_APPS

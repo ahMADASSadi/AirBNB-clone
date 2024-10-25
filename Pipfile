@@ -10,6 +10,7 @@ pillow = "*"
 django-countries = "*"
 whitenoise = "*"
 ippanel = "*"
+django-seed = "*"
 
 [dev-packages]
 flake8 = "*"

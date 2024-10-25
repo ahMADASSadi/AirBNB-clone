@@ -6,7 +6,7 @@ from . import models
 # Register your models here.
 
 
-@admin.register(models.RoomType, models.RoomFacility, models.RoomAmenity, models.RoomRule)
+@admin.register(models.RoomType, models.Facility, models.Amenity, models.Rule)
 class ItemAdmin(admin.ModelAdmin):
     verbose_name = _('Item Admin')
     list_display = ('name', 'used_by')
@@ -89,7 +89,7 @@ class RoomAdmin(admin.ModelAdmin):
     def amenities(self, room: models.Room):
         if room.room_amenity.exists():
             amenity = room.room_amenity.all()
-            return ', '.join([str(a) for a in amenity])
+            return f"{', '.join([str(a) for a in amenity]):.10}"
         return 0
 
     @admin.display(ordering='images')
