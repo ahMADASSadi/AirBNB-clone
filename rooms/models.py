@@ -1,3 +1,4 @@
+from typing import Iterable
 from django.db import models
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
@@ -105,6 +106,11 @@ class Room(TimeStampedModel):
     class Meta:
         verbose_name = _('Room')
         verbose_name_plural = _("Rooms")
+
+    def save(self, *args, **kwargs):
+        # self.name = self.name.strip()
+        self.city = self.city.capitalize()
+        super().save(*args, **kwargs)
 
     def total_rating(self):
         reviews = self.reviews.all()

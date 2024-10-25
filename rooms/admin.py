@@ -20,18 +20,24 @@ class RoomImageInline(admin.StackedInline):
     extra = 0
     min_num = 1
     max_num = 10
-    readonly_fields = ['thumbnail']
+    readonly_fields = ['get_thumbnail']
     verbose_name = _('Room Image')
     verbose_name_plural = _('Room Images')
 
-    def thumbnail(self, instance):
-        print(f"Image URL: {instance.image.url}")
-        if instance.image.name != " ":  # Check if the image exists
-            return format_html(f'<img src="{instance.image.url}" class=thumbnail />')
-        print(_("No image found"))  # Debugging line
-        return _("No Image Available")
+    def get_thumbnail(self, images: models.RoomImage):
+        # Customize thumbnail size and wrap in a container for potential slider styling
+        return format_html(
+            f'<div class="slider"><img src="{
+                images.image.url}" class="thumbnail" style=" width:200px; height:200px; object-fit: cover;" /></div>'
+        )
+    get_thumbnail.short_description = 'Thumbnail'
 
-    thumbnail.short_description = _('Image Thumbnail')
+    class Media:
+        css = {
+            # Custom CSS for styling the slider
+            'all': ('room/css/style.css',),
+        }
+        js = ('room/js/slider.js',)
 
 
 @admin.register(models.Room)
@@ -77,6 +83,8 @@ class RoomAdmin(admin.ModelAdmin):
                          "room_facility",]
     inlines = [RoomImageInline]
 
+    raw_id_fields = ['host']
+
     @admin.display(ordering='amenities')
     def amenities(self, room: models.Room):
         if room.room_amenity.exists():
@@ -103,7 +111,7 @@ class RoomPhotoAdmin(admin.ModelAdmin):
         # Customize thumbnail size and wrap in a container for potential slider styling
         return format_html(
             f'<div class="slider"><img src="{
-                images.image.url}" class="thumbnail" /></div>'
+                images.image.url}" class="thumbnail"  style=" width:200px; height:200px; object-fit: cover;"/></div>'
         )
     get_thumbnail.short_description = 'Thumbnail'
 
