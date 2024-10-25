@@ -97,4 +97,19 @@ class RoomAdmin(admin.ModelAdmin):
 
 @admin.register(models.RoomImage)
 class RoomPhotoAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['__str__', 'get_thumbnail']
+
+    def get_thumbnail(self, images: models.RoomImage):
+        # Customize thumbnail size and wrap in a container for potential slider styling
+        return format_html(
+            f'<div class="slider"><img src="{
+                images.image.url}" class="thumbnail" /></div>'
+        )
+    get_thumbnail.short_description = 'Thumbnail'
+
+    class Media:
+        css = {
+            # Custom CSS for styling the slider
+            'all': ('room/css/style.css',),
+        }
+        js = ('room/js/slider.js',)

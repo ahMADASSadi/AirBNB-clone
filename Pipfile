@@ -9,6 +9,7 @@ django-environ = "*"
 pillow = "*"
 django-countries = "*"
 whitenoise = "*"
+ippanel = "*"
 
 [dev-packages]
 flake8 = "*"
