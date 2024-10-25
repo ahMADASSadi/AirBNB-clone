@@ -11,6 +11,7 @@ django-countries = "*"
 whitenoise = "*"
 ippanel = "*"
 django-seed = "*"
+psycopg2 = "*"
 
 [dev-packages]
 flake8 = "*"
