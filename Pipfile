@@ -12,6 +12,8 @@ whitenoise = "*"
 ippanel = "*"
 django-seed = "*"
 psycopg2 = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 flake8 = "*"

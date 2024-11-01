@@ -50,9 +50,14 @@ PROJECT_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'django_countries',
+    'crispy_forms',
+    'crispy_bootstrap5',  # Add this line
     "whitenoise.runserver_nostatic",
-    'django_seed'
+    'django_seed',
 ]
+# or 'bootstrap5' if you're using Bootstrap 5
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
 
 INSTALLED_APPS = DJANGO_APPS+PROJECT_APPS + THIRD_PARTY_APPS
 
