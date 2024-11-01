@@ -47,7 +47,7 @@ class RoomAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('Basic Info'), {
             'fields': (
-                'name', 'description', 'country', 'address', 'price')}),
+                'name', 'description', 'country', 'city', 'address', 'price')}),
         (_("Times"), {
             'fields': (
                 'check_in', 'check_out', 'instant_book')}),
@@ -78,7 +78,7 @@ class RoomAdmin(admin.ModelAdmin):
         "total_rating",
     ]
     list_filter = ['city', 'country', 'instant_book']
-    search_fields = ['city', 'host__username']
+    search_fields = ['name', 'city', 'host__username']
     filter_horizontal = ['room_amenity', "house_rule",
                          "room_facility",]
     inlines = [RoomImageInline]

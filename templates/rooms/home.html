@@ -15,31 +15,14 @@ Home
 {% endfor %}
 
 <div class="pagination">
-    <p>Page {{ page }} of {{ page_count }}</p>
-    {% if page_count > 1 %}
-        <div class="page-links">
-            {# Previous Link #}
-            {% if page > 1 %}
-                <a href="?page={{ page|add:-1 }}">Previous</a>
-            {% else %}
-                <span>Previous</span>  {# Disable link if on the first page #}
-            {% endif %}
-
-            {% for page_num in page_range %}
-                {% if page_num == page %}
-                    <strong>{{ page_num }}</strong>  {# Current page, show as bold #}
-                {% else %}
-                    <a href="?page={{ page_num }}">{{ page_num }}</a>
-                {% endif %}
-            {% endfor %}
-
-            {# Next Link #}
-            {% if page < page_count %}
-                <a href="?page={{ page|add:1 }}">Next</a>
-            {% else %}
-                <span>Next</span>  {# Disable link if on the last page #}
-            {% endif %}
-        </div>
+    
+    
+    {% if rooms.has_previous %}
+    <a href="?page={{ rooms.previous_page_number }}">Previous</a>
+    {% endif %}
+    {{rooms}}
+    {% if rooms.has_next %}
+        <a href="?page={{ rooms.next_page_number }}">Next</a>
     {% endif %}
 </div>
 

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ room.name }}</h1>
+<h3>{{ room.description }}</h3>
+<p> Amenities </p>
+<ul>
+{% for amenity in room.room_amenity.all %}
+<li>
+{{amenity.name}}
+</li>
+{% endfor %}
+</ul>
+<p> Facilities </p>
+<ul>
+{% for facility in room.room_facility.all %}
+<li>
+{{facility.name}}
+</li>
+{% endfor %}
+</ul>
+
+<p> House Rules </p>
+<ul>
+{% for rule in room.house_rule.all %}
+<li>
+{{rule.name}}
+</li>
+{% endfor %}
+</ul>
+{% endblock content %}

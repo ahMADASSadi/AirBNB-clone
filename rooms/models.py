@@ -1,3 +1,4 @@
+from django.urls import reverse
 from typing import Iterable
 from django.db import models
 from django.conf import settings
@@ -121,3 +122,6 @@ class Room(TimeStampedModel):
             return round(total / len(reviews), 1)
         else:
             return 0
+
+    def get_absolute_url(self):
+        return reverse("rooms:detail", kwargs={"id": self.pk})
